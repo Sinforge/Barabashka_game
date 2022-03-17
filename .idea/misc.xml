@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/vladv/IntelliJIDEAProjects/Barabashka_game/app/src/main/res/layout/activity_main.xml" value="0.4" />
+        <entry key="..\:/Users/vladv/IntelliJIDEAProjects/Barabashka_game/app/src/main/res/layout/fragment_blank.xml" value="0.4" />
+        <entry key="..\:/Users/vladv/IntelliJIDEAProjects/Barabashka_game/app/src/main/res/layout/fragment_game_rules.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/vladv/IntelliJIDEAProjects/Barabashka_game/app/src/main/res/layout/fragment_menu.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/vladv/IntelliJIDEAProjects/Barabashka_game/app/src/main/res/layout/fragment_setting.xml" value="0.1703125" />
+        <entry key="..\:/Users/vladv/IntelliJIDEAProjects/Barabashka_game/app/src/main/res/layout/fragment_settings.xml" value="0.24010416666666667" />
+      </map>
+    </option>
+  </component>
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$" />
   </component>
