@@ -64,7 +64,7 @@ public class Settings extends Fragment {
         View setting = inflater.inflate(R.layout.fragment_settings, container, false);
         Button btn_close =  setting.findViewById(R.id.button_close1);
         btn_close.setOnClickListener(v -> {
-            Fragment menu_fragment = new Menu();
+            Menu menu_fragment = new Menu();
             FragmentManager fragmentManager = getParentFragmentManager();
             FragmentTransaction trans = fragmentManager.beginTransaction();
             trans.replace(R.id.start_layout, menu_fragment);

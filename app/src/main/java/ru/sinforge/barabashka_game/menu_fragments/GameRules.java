@@ -64,9 +64,10 @@ public class GameRules extends Fragment {
         View game_rules = inflater.inflate(R.layout.fragment_game_rules, container, false);
         Button btn_close = game_rules.findViewById(R.id.button_close2);
         btn_close.setOnClickListener(v -> {
-            Fragment menu_fragment = new Menu();
+            Menu menu_fragment = new Menu();
             FragmentManager fragmentManager = getParentFragmentManager();
             FragmentTransaction trans = fragmentManager.beginTransaction();
+            trans.setReorderingAllowed(true);
             trans.replace(R.id.start_layout, menu_fragment);
             trans.addToBackStack("back_to_menu");
             trans.commit();

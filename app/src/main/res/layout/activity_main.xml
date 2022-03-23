@@ -7,13 +7,6 @@
         android:layout_height="match_parent"
         android:gravity="center"
         tools:context=".MainActivity"
-        android:id="@+id/start_layout">
-    <fragment
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:id="@+id/application_menu"
-            android:name="ru.sinforge.barabashka_game.menu_fragments.Menu">
-
-    </fragment>
-
+        android:id="@+id/start_layout"
+        android:orientation="vertical">
 </LinearLayout>

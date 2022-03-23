@@ -92,8 +92,6 @@ public class Menu extends Fragment implements View.OnClickListener {
                 operation = "go_to_setting";
                 break;
         }
-
-
         FragmentManager fragmentManager = getParentFragmentManager();
         FragmentTransaction trans = fragmentManager.beginTransaction();
         trans.replace(R.id.start_layout, menu_fragment);
