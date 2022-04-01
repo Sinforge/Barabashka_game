@@ -10,6 +10,9 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.Barabashka_game">
         <activity
+                android:name=".Activity_for_play"
+                android:exported="true"/>
+        <activity
                 android:name=".MainActivity"
                 android:exported="true">
             <intent-filter>

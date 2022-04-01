@@ -1,5 +1,6 @@
 package ru.sinforge.barabashka_game.menu_fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import androidx.fragment.app.Fragment;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import ru.sinforge.barabashka_game.Activity_for_play;
 import ru.sinforge.barabashka_game.R;
 
 /**
@@ -64,11 +66,10 @@ public class Menu extends Fragment implements View.OnClickListener {
         View menu = inflater.inflate(R.layout.fragment_menu, container, false);
         Button btn_settings = menu.findViewById(R.id.button_settings);
         btn_settings.setOnClickListener(this);
-        // TODO: Make exit and play button handler
-        //Button btn_play = menu.findViewById(R.id.button_play);
-        //btn_play.setOnClickListener(this);
-        /*Button btn_exit = menu.findViewById(R.id.button_exit);
-        btn_exit.setOnClickListener(this);*/
+        Button btn_play = menu.findViewById(R.id.button_play);
+        btn_play.setOnClickListener(this);
+        Button btn_exit = menu.findViewById(R.id.button_exit);
+        btn_exit.setOnClickListener(this);
         Button btn_rules = menu.findViewById(R.id.button_rules);
         btn_rules.setOnClickListener(this);
 
@@ -83,6 +84,11 @@ public class Menu extends Fragment implements View.OnClickListener {
 
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.button_play:
+                operation = "go to new activity";
+                Intent intent = new Intent(getContext(), Activity_for_play.class);
+                startActivity(intent);
+                break;
             case R.id.button_rules:
                 operation = "go_to_rules";
                 menu_fragment = new GameRules();
