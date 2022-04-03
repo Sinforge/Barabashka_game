@@ -10,7 +10,6 @@ public class Activity_for_play extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-
         setContentView(new GameView(this));
     }
 }
