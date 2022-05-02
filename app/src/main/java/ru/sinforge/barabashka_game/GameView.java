@@ -1,6 +1,9 @@
 package ru.sinforge.barabashka_game;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -27,5 +30,11 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     @Override
     public void surfaceDestroyed(@NonNull SurfaceHolder surfaceHolder) {
         gameThread.requestStop();
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        gameThread.CheckAnswer((int)event.getX(),(int)event.getY());
+        return false;
     }
 }

@@ -2,17 +2,25 @@ package ru.sinforge.barabashka_game;
 
 import android.content.Context;
 import android.graphics.*;
+import android.graphics.drawable.Drawable;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import ru.sinforge.barabashka_game.R;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 import static java.lang.Math.max;
 import static java.lang.Math.random;
 
 public class GameThread extends Thread{
+    private int[] Correct_answers = {4};
+    private final ArrayList<ArrayList<Integer>> levels = new ArrayList<>();
     private boolean running = true;
     private SurfaceHolder surfaceHolder;
+    private final Context context;
     private int number_of_figure;
     //private String[] figures = {"Circle", "Rectangle", "Square", "Rhombus", "Oval" };
     private String[] figures = {"Circle", "Rectangle", "Square", "Oval"};
@@ -21,6 +29,7 @@ public class GameThread extends Thread{
 
 
     public GameThread (Context context, SurfaceHolder surfaceHolder) {
+        this.context = context;
         this.surfaceHolder = surfaceHolder;
     }
 
@@ -34,82 +43,83 @@ public class GameThread extends Thread{
     private int base_color;
     private int base_digit;
 
+
+
     //По правилам игры нужно сделать, чтобы было посередине спавнилась фигура с числом и цветом(Либо найти полностью
     //противоположную, либо абсолютно такую же( Пусть 0- раунд на нахождение полностью отличной, 1- раунд на нахождение
     //абсолютно такой же
+    //Заготовим готовые уровни
 
-    public void DrawBaseFigure(Canvas canvas, Paint paint) {
-        //Параметры основной фигуры
-        base_figure = "Circle";//figures[(int)(random() * 4)]; //фигура
-        base_color = colorArray[(int) (random()* 7)]; // цвет
-        base_digit = (int) (random() * 10); // цифра
-        paint.setColor(base_color);
-        if (base_figure.equals("Circle")) {
-            canvas.drawCircle((float)canvas.getWidth()/ 2, (float) canvas.getHeight()/2, canvas.getWidth() / 8, paint);
-        }
-        else if (base_figure.equals("Square")) {
-            Rect rect = new Rect();
-            rect.set( (canvas.getWidth()/5 *2), canvas.getHeight()/5 * 2, canvas.getWidth()/5 * 3, (canvas.getHeight()/5 * 2) + canvas.getWidth()/5);
-            canvas.drawRect(rect, paint);
-
-        }
-        paint.setARGB(255, 120, 120, 120);
-        paint.setTextSize(canvas.getWidth() / 8);
-        canvas.drawText(String.valueOf(base_digit),canvas.getWidth()/2, canvas.getHeight()/2, paint);
-
+    public String SelectRandomLevel() {
+        int level_number = (int) (Math.random() * 5);
+        return ("level" +level_number + "/");
     }
 
-    //TODO : finish game logic
-    private int correct_figure;
-    public void mode0 (Canvas canvas,Paint paint) { //Найти полностью отличный
-        correct_figure = (int) (random() * 4);
-        for(int i =0; i < 4; i++) {
 
 
-        }
+    private Rect MainShape;
+    private ArrayList<Rect> ShapesRects ;
+    private ArrayList<Bitmap> ShapesTextures;
 
-    }
-    // TODO : realize method for drawing random figures
-    public void DrawRandomFigures(Canvas canvas, Paint paint) {
-        //Выбор режима (0 или 1):
-        int mode = (int)(random() * 2);
-        DrawBaseFigure(canvas, paint);
-        int x = canvas.getWidth() / 8;
 
-        for (int i =0 ; i < 4; i++) {
-             number_of_figure =(int) (random() * 4);
-             switch (number_of_figure) {
-                 case 0:
-                     paint.setColor(Color.RED);
-                     canvas.drawCircle(x + i * (canvas.getWidth() / 4), canvas.getHeight() - canvas.getWidth() / 8, canvas.getWidth() / 8, paint);
-                     break;
-                 case 1:
-                     paint.setColor(Color.BLACK);
-                     Rect rect = new Rect();
-                     rect.set((int) (i * canvas.getWidth()/4), (int) (canvas.getHeight() - canvas.getWidth() / 4), (int) (canvas.getWidth() /4 + i * canvas.getWidth()/4), (int)canvas.getHeight());
-                     canvas.drawRect(rect, paint);
-                     break;
-                 case 2:
-                     paint.setColor(Color.WHITE);
-                     canvas.drawCircle(x + i * (canvas.getWidth() / 4), canvas.getHeight() - canvas.getWidth() / 8, canvas.getWidth() / 8, paint);
-                     break;
-                 case 3:
-                     paint.setColor(Color.GRAY);
-                     canvas.drawCircle(x + i * (canvas.getWidth() / 4), canvas.getHeight() - canvas.getWidth() / 8, canvas.getWidth() / 8, paint);
-                     break;
-             }
+
+    public void MakeField(Canvas canvas) {
+        ShapesRects = new ArrayList<Rect>();
+        MainShape = new Rect(canvas.getWidth()/ 5 * 2,30, canvas.getWidth()/5 * 3, canvas.getHeight()/3);
+        for(int i = 1 ; i < 5; i++) {
+            ShapesRects.add(new Rect(50, (canvas.getHeight()/5)* i, canvas.getHeight()/5, (canvas.getHeight()/5)* (i+1) ));
         }
     }
+
+    public void loadTextures() {
+        ShapesTextures = new ArrayList<Bitmap>();
+        for(int i = 1; i <=5; i++) {
+            InputStream ims;
+            try {
+                ims = context.getAssets().open("level2/" + "shape"+i+".png");
+            }
+            catch(IOException ex) {
+                return;
+            }
+            ShapesTextures.add(BitmapFactory.decodeStream(ims));
+        }
+    }
+    public void DrawImg(Canvas canvas, Paint paint) {
+        for(int i =1 ; i < 5; i++) {
+            canvas.drawBitmap(ShapesTextures.get(i - 1), ShapesRects.get(i- 1).left, ShapesRects.get(i - 1).top, paint);
+        }
+        canvas.drawBitmap(ShapesTextures.get(4), MainShape.left, MainShape.top,paint);
+    }
+
+
+
+    public void CheckAnswer(int x, int y) {
+        for(int i =0; i < 4;i++) {
+            if(ShapesRects.get(i).contains(x, y) && i == 3) {
+                COUNT_PLAYER++;
+                break;
+            }
+        }
+    }
+    private int COUNT_PLAYER = 0;
     @Override
     public void run() {
-        Paint paint  = new Paint();
-            Canvas canvas = surfaceHolder.lockCanvas();
+        Paint paint = new Paint();
+        paint.setTextSize(40);
+        Canvas canvas = surfaceHolder.lockCanvas();
+        MakeField(canvas);
+        loadTextures();
+        surfaceHolder.unlockCanvasAndPost(canvas);
+        while (running) {
+            canvas = surfaceHolder.lockCanvas();
             if (canvas != null) {
                 try {
-                    canvas.drawARGB(255, 0, 255, 0);
-                    paint.setStyle(Paint.Style.FILL);
+                    paint.setColor(Color.RED);
                     paint.setARGB(255, 255, 0, 0);
-                    DrawRandomFigures(canvas, paint);
+                    paint.setARGB(255, 0, 0, 255);
+                    canvas.drawText(""+COUNT_PLAYER, 30 , 30, paint);
+                    paint.setStyle(Paint.Style.FILL);
+                    DrawImg(canvas, paint);
                 } finally {
                     surfaceHolder.unlockCanvasAndPost(canvas);
                 }
@@ -119,5 +129,8 @@ public class GameThread extends Thread{
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+        }
+
     }
+
 }
