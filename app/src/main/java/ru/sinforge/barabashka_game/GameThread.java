@@ -17,6 +17,7 @@ import static java.lang.Math.max;
 import static java.lang.Math.random;
 
 public class GameThread extends Thread{
+    private final Object sync = new Object();
     private final int[] Correct_answers = {1, 4};
     private final ArrayList<ArrayList<Integer>> levels = new ArrayList<>();
     private boolean running = true;
@@ -46,7 +47,7 @@ public class GameThread extends Thread{
 
 
     public String SelectRandomLevel() {
-        this.level_number = 2;
+        this.level_number = (int)(Math.random()*2+ 1);
         return ("level" +level_number);
     }
 
@@ -70,22 +71,24 @@ public class GameThread extends Thread{
         }
     }
 
-    //TODO: fix bug with level1 (array with textures have only 3 elements)
+    //Ошибка из-за синхронизации текстуры не успевали обновляться после того как была нажата правильная фигура
     //Загружаем текстуры (рандомно из assets)
-    public void loadTextures(){
-        ShapesTextures = new ArrayList<Bitmap>();
-        for(int i = 1; i <=5; i++) {
-            InputStream ims;
-            try {
-                String level = SelectRandomLevel();
-                ims = context.getAssets().open(level+"/" + "shape"+i+".png");
-                ShapesTextures.add(BitmapFactory.decodeStream(ims));
-                ims.close();
-            }
-            catch(IOException ex) {
-                return;
-            }
+    public void loadTextures() {
+        synchronized (sync) {
+            ShapesTextures = new ArrayList<Bitmap>();
+            String level = SelectRandomLevel();
+            for (int i = 1; i <= 5; i++) {
+                InputStream ims;
+                try {
+                    ims = context.getAssets().open(level + "/" + "shape" + i + ".png");
+                    ShapesTextures.add(BitmapFactory.decodeStream(ims));
+                    ims.close();
+                } catch (IOException ex) {
+                    Log.d("СЧИТЫВАНИЕ ФАЙЛОВ", "ошибочка");
+                    return;
+                }
 
+            }
         }
     }
 
@@ -103,21 +106,28 @@ public class GameThread extends Thread{
 
     //Метод для проверки корректного ответа
     public void CheckAnswer(int x, int y) {
-        for(int i =0; i < 4;i++) {
-            if(ShapesRects_PLAYER1.get(i).contains(x, y) &&  i == Correct_answers[level_number-1] - 1) {
-                COUNT_PLAYER1++;
-                loadTextures();
-                break;
+        try {
+            for (int i = 0; i < 4; i++) {
+                if (ShapesRects_PLAYER1.get(i).contains(x, y) && i == Correct_answers[level_number - 1] - 1) {
+                    COUNT_PLAYER1++;
+                    loadTextures();
+                    sleep(1000);
+                    break;
+                }
+                Log.d("CHECK_ANSWER", "Координаты нажатия: " + x + " " + y);
+                Log.d("CHECK_ANSWER", "Координаты фигурки правой: " + ShapesRects_PLAYER2.get(i).left + " " + ShapesRects_PLAYER2.get(i).right + " " + ShapesRects_PLAYER2.get(i).top + " " + ShapesRects_PLAYER2.get(i).bottom);
+                if (ShapesRects_PLAYER2.get(i).contains(x, y) && i == Correct_answers[level_number - 1] -1) {
+                    COUNT_PLAYER2++;
+                    loadTextures();
+                    sleep(1000);
+                    break;
+                }
             }
-            Log.d("CHECK_ANSWER", "Координаты нажатия: " + x + " " + y);
-            Log.d("CHECK_ANSWER", "Координаты фигурки правой: " + ShapesRects_PLAYER2.get(i).left + " "+ ShapesRects_PLAYER2.get(i).right + " "+ ShapesRects_PLAYER2.get(i).top + " "+ ShapesRects_PLAYER2.get(i).bottom);
-            if(ShapesRects_PLAYER2.get(i).contains(x, y) && i== Correct_answers[level_number-1]) {
-                COUNT_PLAYER2++;
-                loadTextures();
-                break;
+
+            } catch(InterruptedException e){
+                e.printStackTrace();
             }
         }
-    }
     private int COUNT_PLAYER1 = 0;
     private int COUNT_PLAYER2 = 0 ;
     @Override
@@ -139,7 +149,10 @@ public class GameThread extends Thread{
                     canvas.drawText(""+COUNT_PLAYER1, 30 , 30, paint);
                     canvas.drawText(""+COUNT_PLAYER2, canvas.getWidth()- 30 , 30, paint);
                     paint.setStyle(Paint.Style.FILL);
-                    DrawImg(canvas, paint);
+
+                    synchronized (sync) {
+                        DrawImg(canvas, paint);
+                    }
                 } finally {
                     surfaceHolder.unlockCanvasAndPost(canvas);
                 }
