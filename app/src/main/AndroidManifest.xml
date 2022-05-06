@@ -32,7 +32,7 @@
                 android:name=".Activities.BaseActivity"
                 android:exported="true"/>
         <activity
-                android:name=".Activity_for_play"
+                android:name=".Activities.Activity_for_play"
                 android:exported="true"
                 />
 

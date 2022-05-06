@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import ru.sinforge.barabashka_game.Activity_for_play;
+import ru.sinforge.barabashka_game.Activities.Activity_for_play;
 import ru.sinforge.barabashka_game.R;
 
 /**

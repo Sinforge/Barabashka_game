@@ -5,10 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import ru.sinforge.barabashka_game.Activity_for_play;
 import ru.sinforge.barabashka_game.R;
-import ru.sinforge.barabashka_game.menu_fragments.GameRules;
-import ru.sinforge.barabashka_game.menu_fragments.Settings;
 
 public class MenuActivity extends AppCompatActivity {
 

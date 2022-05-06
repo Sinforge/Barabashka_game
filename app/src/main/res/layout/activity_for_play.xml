@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".Activity_for_play">
-
-    <TextView
-            android:text="TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textView" tools:layout_editor_absoluteY="235dp"
-            tools:layout_editor_absoluteX="153dp"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+<LinearLayout android:orientation="vertical"
+              android:id="@+id/linearLayout2"
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+    <ru.sinforge.barabashka_game.GameComponents.GameView android:id="@+id/surfaceView1"
+                                                         android:layout_width="match_parent"
+                                                         android:layout_height="592dp"/>
+    <LinearLayout android:id="@+id/linearLayout1" android:layout_width="246dp" android:layout_height="110dp">
+        <Button android:text="Button" android:id="@+id/button1" android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></Button>
+        <Button android:text="Button" android:id="@+id/button2" android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></Button>
+    </LinearLayout>
+</LinearLayout>
