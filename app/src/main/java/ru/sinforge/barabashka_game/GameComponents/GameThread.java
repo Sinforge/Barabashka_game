@@ -1,11 +1,14 @@
 package ru.sinforge.barabashka_game.GameComponents;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.*;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import ru.sinforge.barabashka_game.Activities.Activity_for_play;
+import ru.sinforge.barabashka_game.Activities.ResultActivity;
 import ru.sinforge.barabashka_game.R;
 
 import java.io.IOException;
@@ -50,15 +53,33 @@ public class GameThread extends Thread{
         switch (ans) {
             case 1:
                 COUNT_PLAYER1++;
+                if(COUNT_PLAYER1 == 15) {
+                    Log.d("GAME_THREAD", "game over");
+                    requestStop();
+                    Intent intent = new Intent(context, ResultActivity.class);
+                    intent.putExtra("Winner", "Player1");
+                    context.startActivity(intent);
+                    break;
+                }
                 synchronized (sync) {
                     gameField.loadTextures(context);
                 }
                 break;
             case 2:
+                COUNT_PLAYER2++;
+                Log.d("GAME_THREAD", "game over");
+                if(COUNT_PLAYER2 == 15) {
+                    Log.d("GAME_THREAD", "game over");
+                    requestStop();
+                    Intent intent = new Intent(context, ResultActivity.class);
+                    intent.putExtra("Winner", "Player2");
+                    context.startActivity(intent);
+                    break;
+                }
                 synchronized (sync) {
                     gameField.loadTextures(context);
                 }
-                COUNT_PLAYER2++;
+
                 break;
         }
     }
