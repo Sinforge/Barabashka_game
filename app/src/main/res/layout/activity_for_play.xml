@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical"
-              android:id="@+id/linearLayout2"
+<androidx.constraintlayout.widget.ConstraintLayout
 xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
+android:id="@+id/main_screen"
+xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
 android:layout_height="match_parent">
     <ru.sinforge.barabashka_game.GameComponents.GameView android:id="@+id/surfaceView1"
                                                          android:layout_width="match_parent"
-                                                         android:layout_height="592dp"/>
-    <LinearLayout android:id="@+id/linearLayout1" android:layout_width="246dp" android:layout_height="110dp">
-        <Button android:text="Button" android:id="@+id/button1" android:layout_width="wrap_content"
-                android:layout_height="wrap_content"></Button>
-        <Button android:text="Button" android:id="@+id/button2" android:layout_width="wrap_content"
-                android:layout_height="wrap_content"></Button>
+                                                         android:layout_height="match_parent"
+                                                         app:layout_constraintTop_toTopOf="parent"
+                                                         app:layout_constraintStart_toStartOf="parent"
+                                                         app:layout_constraintEnd_toEndOf="parent"
+                                                         app:layout_constraintHorizontal_bias="0.0"/>
+    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:background="@color/black"
+                  android:id="@+id/place_holder"
+                  app:layout_constraintTop_toTopOf="parent"
+                  android:layout_marginTop="164dp" app:layout_constraintBottom_toBottomOf="@+id/surfaceView1"
+                  android:layout_marginBottom="220dp" app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintEnd_toEndOf="parent" app:layout_constraintVertical_bias="0.394"
+                  app:layout_constraintHorizontal_bias="0.45">
+
     </LinearLayout>
-</LinearLayout>
+    <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/btn"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+    </Button>
+</androidx.constraintlayout.widget.ConstraintLayout>
