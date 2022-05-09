@@ -2,13 +2,18 @@ package ru.sinforge.barabashka_game.GameComponents;
 
 import android.content.Context;
 import android.graphics.*;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.media.SoundPool;
 import android.util.Log;
+import ru.sinforge.barabashka_game.R;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
 public class GameField {
+    MediaPlayer player;
     private Shape MainShape = new Shape();
     private ArrayList<Shape> Shapes_PLAYER1;
     private ArrayList<Shape> Shapes_PLAYER2;
@@ -76,11 +81,9 @@ public class GameField {
     public int CheckAnswer(int x, int y) {
         for (int i = 0; i < 4; i++) {
             if (Shapes_PLAYER1.get(i).getCoordinates().contains(x, y) && i == Correct_answers[level_number - 1] - 1) {
-                this.loadTextures(context);
                 return 1;
             }
             if (Shapes_PLAYER2.get(i).getCoordinates().contains(x, y) && i == Correct_answers[level_number - 1] - 1) {
-                this.loadTextures(context);
                 return 2;
             }
         }
