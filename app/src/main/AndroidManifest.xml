@@ -10,6 +10,9 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.Barabashka_game">
         <activity
+                android:name=".Activities.ResultActivity"
+                android:exported="true"/>
+        <activity
                 android:name=".Activities.GameRulesActivity"
                 android:exported="true"/>
         <activity
@@ -33,9 +36,7 @@
                 android:exported="true"/>
         <activity
                 android:name=".Activities.Activity_for_play"
-                android:exported="true"
-                />
-
+                android:exported="true"/>
     </application>
 
 </manifest>
