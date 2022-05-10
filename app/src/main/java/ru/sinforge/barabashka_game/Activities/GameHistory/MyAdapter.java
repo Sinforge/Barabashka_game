@@ -14,12 +14,10 @@ import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewRow> {
 
-    private Context context;
     private List<Result> arrayList;
 
-    public MyAdapter(List<Result> arrayList, Context context) {
+    public MyAdapter(List<Result> arrayList) {
         this.arrayList = arrayList;
-        this.context = context;
     }
 
     // lombok

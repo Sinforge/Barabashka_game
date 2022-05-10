@@ -3,21 +3,12 @@ package ru.sinforge.barabashka_game.GameComponents;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.*;
-import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.SurfaceHolder;
-import android.view.SurfaceView;
-import ru.sinforge.barabashka_game.Activities.Activity_for_play;
 import ru.sinforge.barabashka_game.Activities.ResultActivity;
-import ru.sinforge.barabashka_game.R;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
+import ru.sinforge.barabashka_game.Services.MusicService;
 
 import static java.lang.Math.max;
-import static java.lang.Math.random;
 
 public class GameThread extends Thread{
     private final Object sync = new Object();
@@ -60,6 +51,7 @@ public class GameThread extends Thread{
                     intent.putExtra("Winner", "Player1");
                     intent.putExtra("Score1", COUNT_PLAYER1);
                     intent.putExtra("Score2", COUNT_PLAYER2);
+                    context.stopService(new Intent(context, MusicService.class));
                     context.startActivity(intent);
                     break;
                 }
@@ -77,6 +69,7 @@ public class GameThread extends Thread{
                     intent.putExtra("Winner", "Player2");
                     intent.putExtra("Score1", COUNT_PLAYER1);
                     intent.putExtra("Score2", COUNT_PLAYER2);
+                    context.stopService(new Intent(context, MusicService.class));
                     context.startActivity(intent);
                     break;
                 }

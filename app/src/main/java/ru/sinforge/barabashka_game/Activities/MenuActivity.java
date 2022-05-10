@@ -37,7 +37,7 @@ public class MenuActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.button_play:
-                intent = new Intent(this, Activity_for_play.class);
+                intent = new Intent(this, GameMode.class);
                 startActivity(intent);
                 break;
             case R.id.button_rules:

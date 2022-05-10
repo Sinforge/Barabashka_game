@@ -78,6 +78,9 @@ public class GameField {
     //0 - возвращает, когда нет правильного ответа
     //1 - когда ответил правильно игрок 1
     //2 - когда ответил правильно игрок 2
+    /*private final SoundPool soundPool = new SoundPool(10, AudioManager.STREAM_MUSIC,0);
+    private final int correct = soundPool.load(context, R.raw.correct_answer,10);
+    private final int incorrect = soundPool.load(context, R.raw.uncorrect_answer, 10);*/
     public int CheckAnswer(int x, int y) {
         for (int i = 0; i < 4; i++) {
             if (Shapes_PLAYER1.get(i).getCoordinates().contains(x, y) && i == Correct_answers[level_number - 1] - 1) {
