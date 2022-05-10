@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import ru.sinforge.barabashka_game.Activities.MenuActivity;
 import ru.sinforge.barabashka_game.R;
+import ru.sinforge.barabashka_game.Services.MusicService;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,6 +59,7 @@ public class PauseFragment extends Fragment {
         Button btn_exit = inflate.findViewById(R.id.exit_to_menu);
         btn_exit.setOnClickListener(view -> {
             Intent intent = new Intent(getActivity(), MenuActivity.class);
+            getContext().stopService(new Intent(getContext(), MusicService.class));
             startActivity(intent);
         });
         btn_resume.setOnClickListener(view -> {
