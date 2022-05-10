@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="wrap_content"
+                                                   android:layout_height="wrap_content">
+
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/identif"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="36dp"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="24dp"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/Winner"
+            android:layout_marginStart="8dp" app:layout_constraintStart_toEndOf="@+id/identif"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="24dp"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/Score1"
+            android:layout_marginStart="4dp" app:layout_constraintStart_toEndOf="@+id/Winner"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="24dp"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/Score2"
+            android:layout_marginStart="8dp" app:layout_constraintStart_toEndOf="@+id/Score1"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="24dp"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/date"
+            android:layout_marginStart="12dp" app:layout_constraintStart_toEndOf="@+id/Score2"
+            android:layout_marginEnd="24dp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="24dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

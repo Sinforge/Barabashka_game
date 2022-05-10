@@ -1,10 +1,12 @@
 package ru.sinforge.barabashka_game.Activities;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import ru.sinforge.barabashka_game.Activities.GameHistory.GamesHistoryActivity;
 import ru.sinforge.barabashka_game.R;
 
 public class MenuActivity extends AppCompatActivity {
@@ -22,11 +24,18 @@ public class MenuActivity extends AppCompatActivity {
         btn_exit.setOnClickListener(this::onClick);
         Button btn_rules = findViewById(R.id.button_rules);
         btn_rules.setOnClickListener(this::onClick);
+        Button btn_history = findViewById(R.id.history);
+        btn_history.setOnClickListener(this::onClick);
 
     }
+    @SuppressLint("NonConstantResourceId")
     public void onClick(View v){
         Intent intent;
         switch (v.getId()) {
+            case R.id.history:
+                intent = new Intent(this, GamesHistoryActivity.class);
+                startActivity(intent);
+                break;
             case R.id.button_play:
                 intent = new Intent(this, Activity_for_play.class);
                 startActivity(intent);

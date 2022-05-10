@@ -58,6 +58,8 @@ public class GameThread extends Thread{
                     requestStop();
                     Intent intent = new Intent(context, ResultActivity.class);
                     intent.putExtra("Winner", "Player1");
+                    intent.putExtra("Score1", COUNT_PLAYER1);
+                    intent.putExtra("Score2", COUNT_PLAYER2);
                     context.startActivity(intent);
                     break;
                 }
@@ -73,6 +75,8 @@ public class GameThread extends Thread{
                     requestStop();
                     Intent intent = new Intent(context, ResultActivity.class);
                     intent.putExtra("Winner", "Player2");
+                    intent.putExtra("Score1", COUNT_PLAYER1);
+                    intent.putExtra("Score2", COUNT_PLAYER2);
                     context.startActivity(intent);
                     break;
                 }
