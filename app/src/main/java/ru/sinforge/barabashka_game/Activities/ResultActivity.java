@@ -21,9 +21,6 @@ public class ResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
         TextView winner = findViewById(R.id.winner_name);
-        TextView Score1 = findViewById(R.id.score1);
-        TextView Score2 = findViewById(R.id.score2);
-        TextView Date = findViewById(R.id.date_text);
 
 
 
@@ -37,9 +34,6 @@ public class ResultActivity extends AppCompatActivity {
         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
         String dateText = dateFormat.format(currentDate);
 
-        Date.setText(dateText);
-        Score1.setText(score1 + "");
-        Score2.setText(score2 + "");
 
 
         saveNewResult(winner_name, score1, score2, dateText);

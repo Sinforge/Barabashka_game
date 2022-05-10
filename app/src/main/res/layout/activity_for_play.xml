@@ -11,19 +11,22 @@ android:layout_height="match_parent">
                                                          app:layout_constraintStart_toStartOf="parent"
                                                          app:layout_constraintEnd_toEndOf="parent"
                                                          app:layout_constraintHorizontal_bias="0.0"/>
-    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
-                  android:background="@color/black"
-                  android:id="@+id/place_holder"
-                  app:layout_constraintTop_toTopOf="parent"
-                  android:layout_marginTop="164dp" app:layout_constraintBottom_toBottomOf="@+id/surfaceView1"
-                  android:layout_marginBottom="220dp" app:layout_constraintStart_toStartOf="parent"
-                  app:layout_constraintEnd_toEndOf="parent" app:layout_constraintVertical_bias="0.394"
-                  app:layout_constraintHorizontal_bias="0.45">
 
-    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                                       android:id="@+id/place_holder"
+                                                       app:layout_constraintStart_toStartOf="parent"
+                                                       app:layout_constraintEnd_toEndOf="parent"
+                                                       app:layout_constraintTop_toTopOf="parent"
+                                                       app:layout_constraintBottom_toTopOf="@+id/btn"
+                                                       app:layout_constraintVertical_bias="0.551"
+    >
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
     <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/btn"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="Menu">
 
     </Button>
 </androidx.constraintlayout.widget.ConstraintLayout>
