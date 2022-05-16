@@ -21,7 +21,7 @@ public class MusicService extends Service {
 
     @Override
     public void onCreate() {
-        Toast.makeText(this, "My Service Created", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Игра началась", Toast.LENGTH_LONG).show();
 
         mediaPlayer = MediaPlayer.create(this, R.raw.bg);
         mediaPlayer.setLooping(true); // зацикливаем
@@ -29,7 +29,7 @@ public class MusicService extends Service {
 
     @Override
     public void onDestroy() {
-        Toast.makeText(this, "My Service Stopped", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Конец игры", Toast.LENGTH_LONG).show();
         mediaPlayer.stop();
     }
 

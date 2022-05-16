@@ -9,18 +9,25 @@ import androidx.annotation.NonNull;
 import ru.sinforge.barabashka_game.GameComponents.GameThread;
 
 public class GameView extends SurfaceView implements SurfaceHolder.Callback {
+    private GameThread gameThread;
+    private GameField gameField;
     public GameView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         getHolder().addCallback(this);
     }
 
-    private GameThread gameThread;
-    private GameField gameField;
+
+
     @Override
     public void surfaceCreated(@NonNull SurfaceHolder surfaceHolder) {
+        gameThread.start();
+    }
+
+    public void GameParams(String player1, String player2, int points) {
         gameField = new GameField(getContext());
         gameThread = new GameThread(getContext(), getHolder(), gameField);
-        gameThread.start();
+        gameThread.SetPlayersNames(player1, player2);
+        gameThread.SetPointToEnd(points);
     }
 
 
