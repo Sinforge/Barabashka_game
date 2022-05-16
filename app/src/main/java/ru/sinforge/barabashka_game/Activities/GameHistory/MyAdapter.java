@@ -31,7 +31,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewRow> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewRow holder, int position) {
-        holder.id.setText(arrayList.get(position).uid + "");
+        //holder.id.setText(arrayList.get(position).uid + "");
         holder.Winner.setText(arrayList.get(position).winner);
         holder.Score1.setText(arrayList.get(position).score1 + "");
         holder.Score2.setText(arrayList.get(position).score2 + "");
@@ -45,7 +45,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewRow> {
 
     class ViewRow extends RecyclerView.ViewHolder {
 
-        TextView id;
+        //TextView id;
         TextView Winner;
         TextView Score1;
         TextView Score2;
@@ -53,7 +53,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewRow> {
 
         public ViewRow(@NonNull View itemView) {
             super(itemView);
-            id = itemView.findViewById(R.id.identif);
+            //id = itemView.findViewById(R.id.identif);
             Winner = itemView.findViewById(R.id.Winner);
             Score1 = itemView.findViewById(R.id.Score1);
             Score2 = itemView.findViewById(R.id.Score2);

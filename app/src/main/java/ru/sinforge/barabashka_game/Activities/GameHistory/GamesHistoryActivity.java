@@ -31,7 +31,7 @@ public class GamesHistoryActivity extends AppCompatActivity {
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
         recyclerView.addItemDecoration(dividerItemDecoration);
 
-
+        DividerItemDecoration dividerItemDecoration1 = new DividerItemDecoration(this, DividerItemDecoration.HORIZONTAL);
         myAdapter = new MyAdapter(generateData());
         recyclerView.setAdapter(myAdapter);
     }

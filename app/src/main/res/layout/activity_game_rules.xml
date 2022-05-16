@@ -13,7 +13,7 @@
               app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="16dp"
               app:layout_constraintHorizontal_bias="0.498" android:id="@+id/textView3">
     </TextView>
-    <TextView android:layout_width="367dp" android:layout_height="234dp"
+    <TextView android:layout_width="346dp" android:layout_height="221dp"
               android:text="@string/Game_rules"
               app:layout_constraintStart_toStartOf="parent"
               app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toBottomOf="@+id/textView3"
