@@ -22,18 +22,18 @@
             app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="124dp"/>
     <Button
             android:text="Поделиться результатом"
-            android:layout_width="193dp"
-            android:layout_height="54dp" android:id="@+id/share_result"
+            android:layout_width="198dp"
+            android:layout_height="57dp" android:id="@+id/share_result"
             android:layout_marginStart="24dp" app:layout_constraintStart_toEndOf="@+id/result_to_menu"
             android:layout_marginEnd="24dp" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="32dp"
-            app:layout_constraintHorizontal_bias="1.0"/>
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="16dp"
+            app:layout_constraintHorizontal_bias="0.0"/>
     <Button
             android:text="Вернуться в меню"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/result_to_menu"
+            android:layout_width="164dp"
+            android:layout_height="61dp" android:id="@+id/result_to_menu"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="24dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="16dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp"/>
     <TextView
             android:text="Победитель:"

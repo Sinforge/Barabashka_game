@@ -117,9 +117,9 @@ public class GameThread extends Thread{
                     paint.setARGB(255, 255, 0, 0);
                     paint.setARGB(255, 0, 0, 255);
                     canvas.drawText(""+COUNT_PLAYER1, 30 , 30, paint);
-                    canvas.drawText(player1_name, 30, 50, paint);
-                    canvas.drawText(""+COUNT_PLAYER2, canvas.getWidth()- 30 , 30, paint);
-                    canvas.drawText(player2_name,canvas.getWidth()-30, 50, paint );
+                    canvas.drawText(player1_name, 30, 80, paint);
+                    canvas.drawText(""+COUNT_PLAYER2, canvas.getWidth()- 60 , 30, paint);
+                    canvas.drawText(player2_name,canvas.getWidth()-80, 80, paint );
                     paint.setStyle(Paint.Style.FILL);
                     synchronized (sync) {
                         gameField.DrawImg(canvas,paint);

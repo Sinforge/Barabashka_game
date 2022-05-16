@@ -16,8 +16,6 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        Button btn_settings = findViewById(R.id.button_settings);
-        btn_settings.setOnClickListener(this::onClick);
         Button btn_play = findViewById(R.id.button_play);
         btn_play.setOnClickListener(this::onClick);
         Button btn_exit = findViewById(R.id.button_exit);
@@ -42,11 +40,6 @@ public class MenuActivity extends AppCompatActivity {
                 break;
             case R.id.button_rules:
                 intent = new Intent(this, GameRulesActivity.class);
-                startActivity(intent);
-
-                break;
-            case R.id.button_settings:
-                intent = new Intent(this, SettingsActivity.class);
                 startActivity(intent);
                 break;
         }

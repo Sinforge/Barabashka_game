@@ -34,10 +34,6 @@
                 android:exported="true"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
-                android:name=".Activities.SettingsActivity"
-                android:exported="true"
-                android:label="@string/title_activity_settings"/>
-        <activity
                 android:name=".Activities.MenuActivity"
                 android:exported="true"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -49,9 +45,6 @@
         </activity>
         <activity
                 android:name=".Activities.SplashActivity"
-                android:exported="true"/>
-        <activity
-                android:name=".Activities.BaseActivity"
                 android:exported="true"/>
         <activity
                 android:name=".Activities.Activity_for_play"
