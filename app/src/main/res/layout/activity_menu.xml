@@ -5,36 +5,44 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Activities.MenuActivity">
-    <Button android:layout_width="110dp"
-            android:layout_height="50dp"
+        tools:context=".Activities.MenuActivity"
+        android:background="@drawable/gradient">
+    <Button android:layout_width="170dp"
+            android:layout_height="45dp"
             android:id="@+id/button_play"
-            android:text="PLAY" app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/play" app:layout_constraintStart_toStartOf="parent"
+            style="@style/button_style"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498" app:layout_constraintTop_toBottomOf="@+id/imageView"
             android:layout_marginTop="8dp">
 
     </Button>
     <Button
-            android:text="History"
-            android:layout_width="113dp"
-            android:layout_height="48dp" android:id="@+id/history"
+            android:text="@string/history"
+            style="@style/button_style"
+
+            android:layout_width="176dp"
+            android:layout_height="61dp" android:id="@+id/history"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.506"
             app:layout_constraintTop_toBottomOf="@+id/button_rules" android:layout_marginTop="20dp"/>
-    <Button android:layout_width="110dp"
+    <Button android:layout_width="191dp"
             android:layout_height="50dp"
             android:id="@+id/button_rules"
-            android:text="RULES"
+            android:text="@string/rules"
+            style="@style/button_style"
+
             app:layout_constraintTop_toBottomOf="@+id/button_play" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="20dp"
             app:layout_constraintHorizontal_bias="0.501">
 
     </Button>
-    <Button android:layout_width="110dp"
-            android:layout_height="50dp"
+    <Button android:layout_width="131dp"
+            android:layout_height="58dp"
             android:id="@+id/button_exit"
-            android:text="EXIT"
+            android:text="@string/exit"
+            style="@style/button_style"
+
 
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -51,12 +59,13 @@
             android:layout_marginTop="8dp" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.501"/>
     <TextView
-            android:text="Barabashka Game"
+            android:text="@string/game_name"
+            android:fontFamily="@font/main_regular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/logo"
             android:gravity="center"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp" android:textSize="50dp"
-            app:layout_constraintHorizontal_bias="0.0"/>
+    />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -42,6 +42,10 @@ public class MenuActivity extends AppCompatActivity {
                 intent = new Intent(this, GameRulesActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.button_exit:
+                this.finish();
+                System.exit(0);
+                break;
         }
 
     }

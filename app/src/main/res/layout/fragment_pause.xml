@@ -6,7 +6,7 @@
              tools:context=".GameComponents.PauseFragment">
 
     <Button
-            android:text="Продолжить игру"
+            android:text="@string/resume_game"
             android:layout_width="263dp"
             android:layout_height="42dp" android:id="@+id/resume"
             app:layout_constraintBottom_toTopOf="@+id/exit_to_menu"
@@ -15,7 +15,7 @@
             app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="236dp"
             app:layout_constraintHorizontal_bias="0.533"/>
     <Button
-            android:text="Выход в меню"
+            android:text="@string/exit_to_menu"
             android:layout_width="259dp"
             android:layout_height="47dp" android:id="@+id/exit_to_menu"
             app:layout_constraintBottom_toBottomOf="parent"

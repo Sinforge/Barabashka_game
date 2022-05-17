@@ -7,5 +7,6 @@
         необходимо выбрать такой же объект\n* Если у вас нет точно такого же объекта, необходимо выбрать объект, который
         будет отличаться по всем параметрам от появившегося
     </string>
-    <string name="close">Закрыть</string>
+    <string name="close" translatable="false">Закрыть</string>
+    <string name="rules">Правила</string>
 </resources>

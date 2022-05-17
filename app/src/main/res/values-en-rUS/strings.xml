@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="rules">Rules</string>
+    <string name="exit">Exit</string>
+    <string name="history">History</string>
+    <string name="play">Play</string>
+    <string name="Game_rules">You have certain figures on the screen with different characteristics (For example, blue
+        triangle, orange square, etc.), we will call them objects. When the game starts, you will have on the screen
+        objects with certain characteristics appear. Your task, depending on the object that appears, is to click on one
+        of your own according to one of the conditions:\\n* If you have an object that fully matches the one that
+        appeared, you must select the same object \\n* If you do not have exactly the same object, you must select the
+        object which will differ in all respects from the appeared
+    </string>
+    <string name="game_over">Game Over</string>
+    <string name="share_res">Share result</string>
+    <string name="back_to_menu">Back to menu</string>
+    <string name="winner">Winner:</string>
+    <string name="menu">Menu</string>
+    <string name="params">Game Params</string>
+    <string name="player1_n">Player\'s name 1</string>
+    <string name="player2_n">Player\'s name 2</string>
+    <string name="end_points">Points for end</string>
+    <string name="start">Start game</string>
+    <string name="history_of_matches">History of matches</string>
+    <string name="game_rules">Game rules</string>
+    <string name="resume_game">Resume game</string>
+    <string name="exit_to_menu">Exit to menu</string>
+    <string name="close" translatable="false">Close</string>
+</resources>
