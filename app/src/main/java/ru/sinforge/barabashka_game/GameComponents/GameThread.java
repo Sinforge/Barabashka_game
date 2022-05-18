@@ -113,6 +113,7 @@ public class GameThread extends Thread{
             if (canvas != null) {
                 try {
                     canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
+
                     paint.setColor(Color.RED);
                     paint.setARGB(255, 255, 0, 0);
                     paint.setARGB(255, 0, 0, 255);

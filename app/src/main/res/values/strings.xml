@@ -128,7 +128,7 @@
     <string name="params">Параметры игры</string>
     <string name="player1_n">Имя игрока 1</string>
     <string name="player2_n">Имя игрока 2</string>
-    <string name="end_points">Количество очко для победы</string>
+    <string name="end_points">Количество очков для победы</string>
     <string name="start">Начать игру</string>
     <string name="history_of_matches">История матчей</string>
     <string name="game_rules">Правила игры</string>
