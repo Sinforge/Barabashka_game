@@ -26,6 +26,14 @@
               app:layout_constraintEnd_toEndOf="parent"
               app:layout_constraintBottom_toBottomOf="parent"
               app:layout_constraintTop_toTopOf="parent"
-              app:layout_constraintVertical_bias="0.615">
+              app:layout_constraintVertical_bias="0.615" android:id="@+id/textView8">
     </TextView>
+    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+            android:layout_width="349dp"
+            android:layout_height="199dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="32dp"
+            app:videoId="5qap5aO4i9A"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
