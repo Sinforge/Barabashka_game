@@ -5,36 +5,39 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Activities.ResultActivity">
+        tools:context=".Activities.ResultActivity"
+        android:background="@drawable/gradient">
     <TextView
             android:text="@string/game_over"
-            android:layout_width="325dp"
-            android:layout_height="97dp" android:id="@+id/game_over"
-            android:textSize="60dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="396dp"
+            android:layout_height="147dp" android:id="@+id/game_over"
+            android:textSize="50dp" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.062"
-    />
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.056"
+            app:layout_constraintHorizontal_bias="1.0"/>
     <ImageView
             android:layout_width="252dp"
             android:layout_height="283dp" app:srcCompat="@drawable/ghost_winner" android:id="@+id/imageView2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="124dp"/>
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.572"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="144dp"/>
     <Button
             android:text="@string/share_res"
-            android:layout_width="198dp"
-            android:layout_height="57dp" android:id="@+id/share_result"
+            android:layout_width="200dp"
+            android:layout_height="66dp" android:id="@+id/share_result"
             android:layout_marginStart="24dp" app:layout_constraintStart_toEndOf="@+id/result_to_menu"
             android:layout_marginEnd="24dp" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="16dp"
-            app:layout_constraintHorizontal_bias="0.0"/>
+            app:layout_constraintHorizontal_bias="0.0"
+            style="@style/button_style"/>
     <Button
             android:text="@string/back_to_menu"
             android:layout_width="164dp"
             android:layout_height="61dp" android:id="@+id/result_to_menu"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="16dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="16dp"/>
+            android:layout_marginStart="16dp"
+            style="@style/button_style"/>
     <TextView
             android:text="@string/winner"
             android:layout_width="wrap_content"
