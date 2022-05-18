@@ -7,6 +7,7 @@
 
     <TextView
             android:text="TextView"
+            android:fontFamily="@font/main_text_regula"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/Winner"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
@@ -14,6 +15,7 @@
             android:layout_marginStart="68dp"/>
     <TextView
             android:text="TextView"
+            android:fontFamily="@font/main_text_regula"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/Score1"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
@@ -21,6 +23,7 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.376"/>
     <TextView
             android:text="TextView"
+            android:fontFamily="@font/main_text_regula"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/Score2"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
@@ -28,6 +31,7 @@
             android:layout_marginEnd="148dp"/>
     <TextView
             android:text="TextView"
+            android:fontFamily="@font/main_text_regula"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/date"
             app:layout_constraintEnd_toEndOf="parent"

@@ -5,19 +5,27 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Activities.GameRulesActivity">
+        tools:context=".Activities.GameRulesActivity"
+        android:background="@drawable/gradient">
 
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
               android:text="@string/game_rules"
+              android:fontFamily="@font/main_text_regula"
+              android:textSize="30dp"
+              android:gravity="center"
+
               app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
               app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="16dp"
               app:layout_constraintHorizontal_bias="0.498" android:id="@+id/textView3">
     </TextView>
-    <TextView android:layout_width="346dp" android:layout_height="221dp"
+    <TextView android:layout_width="325dp" android:layout_height="529dp"
               android:text="@string/Game_rules"
+              android:fontFamily="@font/main_text_regula"
+
               app:layout_constraintStart_toStartOf="parent"
-              app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toBottomOf="@+id/textView3"
-              android:layout_marginTop="20dp" app:layout_constraintBottom_toBottomOf="parent"
-              app:layout_constraintVertical_bias="0.0">
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintTop_toTopOf="parent"
+              app:layout_constraintVertical_bias="0.615">
     </TextView>
 </androidx.constraintlayout.widget.ConstraintLayout>
