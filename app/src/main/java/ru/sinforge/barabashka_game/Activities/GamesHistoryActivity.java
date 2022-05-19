@@ -1,10 +1,11 @@
-package ru.sinforge.barabashka_game.Activities.GameHistory;
+package ru.sinforge.barabashka_game.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import ru.sinforge.barabashka_game.Adapters.ResultAdapter;
 import ru.sinforge.barabashka_game.Database.AppDatabase;
 import ru.sinforge.barabashka_game.Database.Result;
 import ru.sinforge.barabashka_game.R;
@@ -12,7 +13,7 @@ import ru.sinforge.barabashka_game.R;
 import java.util.List;
 
 public class GamesHistoryActivity extends AppCompatActivity {
-    private MyAdapter myAdapter;
+    private ResultAdapter myAdapter;
 
 
 
@@ -32,7 +33,7 @@ public class GamesHistoryActivity extends AppCompatActivity {
         recyclerView.addItemDecoration(dividerItemDecoration);
 
         DividerItemDecoration dividerItemDecoration1 = new DividerItemDecoration(this, DividerItemDecoration.HORIZONTAL);
-        myAdapter = new MyAdapter(generateData());
+        myAdapter = new ResultAdapter(generateData());
         recyclerView.setAdapter(myAdapter);
     }
 

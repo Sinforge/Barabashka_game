@@ -7,7 +7,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import ru.sinforge.barabashka_game.Activities.GameHistory.GamesHistoryActivity;
 import ru.sinforge.barabashka_game.R;
 
 public class GameMode extends AppCompatActivity {
@@ -50,7 +49,6 @@ public class GameMode extends AppCompatActivity {
 
 
     public void onClick(View v) {
-        Intent intent;
         switch (v.getId()) {
             case R.id.number_10:
                 this.points_to_end = 10;

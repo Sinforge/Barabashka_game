@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/vladv/IntelliJIDEAProjects/Barabashka_game/app/src/main/res/drawable/button_background.xml" value="0.26510416666666664" />
         <entry key="..\:/Users/vladv/IntelliJIDEAProjects/Barabashka_game/app/src/main/res/drawable/gradient.xml" value="0.26510416666666664" />
+        <entry key="..\:/Users/vladv/IntelliJIDEAProjects/Barabashka_game/app/src/main/res/drawable/langs.xml" value="0.26510416666666664" />
         <entry key="..\:/Users/vladv/IntelliJIDEAProjects/Barabashka_game/app/src/main/res/drawable/level.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/vladv/IntelliJIDEAProjects/Barabashka_game/app/src/main/res/font/fonts.xml" value="0.1935185185185185" />
         <entry key="..\:/Users/vladv/IntelliJIDEAProjects/Barabashka_game/app/src/main/res/layout/activity_app_database.xml" value="0.25" />
@@ -14,7 +15,7 @@
         <entry key="..\:/Users/vladv/IntelliJIDEAProjects/Barabashka_game/app/src/main/res/layout/activity_game_rules.xml" value="0.4" />
         <entry key="..\:/Users/vladv/IntelliJIDEAProjects/Barabashka_game/app/src/main/res/layout/activity_games_history.xml" value="0.264" />
         <entry key="..\:/Users/vladv/IntelliJIDEAProjects/Barabashka_game/app/src/main/res/layout/activity_main.xml" value="0.4" />
-        <entry key="..\:/Users/vladv/IntelliJIDEAProjects/Barabashka_game/app/src/main/res/layout/activity_menu.xml" value="0.176" />
+        <entry key="..\:/Users/vladv/IntelliJIDEAProjects/Barabashka_game/app/src/main/res/layout/activity_menu.xml" value="0.536" />
         <entry key="..\:/Users/vladv/IntelliJIDEAProjects/Barabashka_game/app/src/main/res/layout/activity_result.xml" value="0.536" />
         <entry key="..\:/Users/vladv/IntelliJIDEAProjects/Barabashka_game/app/src/main/res/layout/activity_splash.xml" value="0.25" />
         <entry key="..\:/Users/vladv/IntelliJIDEAProjects/Barabashka_game/app/src/main/res/layout/fragment_blank.xml" value="0.4" />
@@ -23,6 +24,7 @@
         <entry key="..\:/Users/vladv/IntelliJIDEAProjects/Barabashka_game/app/src/main/res/layout/fragment_pause.xml" value="0.4" />
         <entry key="..\:/Users/vladv/IntelliJIDEAProjects/Barabashka_game/app/src/main/res/layout/fragment_setting.xml" value="0.1703125" />
         <entry key="..\:/Users/vladv/IntelliJIDEAProjects/Barabashka_game/app/src/main/res/layout/fragment_settings.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/vladv/IntelliJIDEAProjects/Barabashka_game/app/src/main/res/layout/row_lang.xml" value="0.25" />
         <entry key="..\:/Users/vladv/IntelliJIDEAProjects/Barabashka_game/app/src/main/res/layout/settings_activity.xml" value="0.25" />
         <entry key="..\:/Users/vladv/IntelliJIDEAProjects/Barabashka_game/app/src/main/res/layout/view_row.xml" value="0.72" />
         <entry key="..\:/Users/vladv/IntelliJIDEAProjects/Barabashka_game/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.12916666666666668" />

@@ -22,7 +22,7 @@
         </service>
 
         <activity
-                android:name=".Activities.GameHistory.GamesHistoryActivity"
+                android:name=".Activities.GamesHistoryActivity"
                 android:exported="true"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity

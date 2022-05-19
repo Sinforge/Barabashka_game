@@ -1,6 +1,5 @@
-package ru.sinforge.barabashka_game.Activities.GameHistory;
+package ru.sinforge.barabashka_game.Adapters;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,11 +11,11 @@ import ru.sinforge.barabashka_game.R;
 
 import java.util.List;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewRow> {
+public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ViewRow> {
 
     private List<Result> arrayList;
 
-    public MyAdapter(List<Result> arrayList) {
+    public ResultAdapter(List<Result> arrayList) {
         this.arrayList = arrayList;
     }
 
