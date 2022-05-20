@@ -1,5 +1,6 @@
 package ru.sinforge.barabashka_game.Activities;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Handler;
 import android.view.View;
@@ -7,8 +8,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import ru.sinforge.barabashka_game.R;
 
+@SuppressLint("CustomSplashScreen")
 public class SplashActivity extends AppCompatActivity {
-    private static int SPLASH_TIME = 3000;
+    private static final int SPLASH_TIME = 3000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,13 +22,10 @@ public class SplashActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent menuIntent = new Intent(SplashActivity.this, MenuActivity.class);
-                startActivity(menuIntent);
-                finish();
-            }
+        new Handler().postDelayed(() -> {
+            Intent menuIntent = new Intent(SplashActivity.this, MenuActivity.class);
+            startActivity(menuIntent);
+            finish();
         }, SPLASH_TIME);
     }
 }

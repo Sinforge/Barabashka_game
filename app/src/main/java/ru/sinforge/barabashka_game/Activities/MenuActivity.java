@@ -2,15 +2,18 @@ package ru.sinforge.barabashka_game.Activities;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.media.MediaPlayer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import ru.sinforge.barabashka_game.Adapters.LangAdapter;
 import ru.sinforge.barabashka_game.R;
 import ru.sinforge.barabashka_game.Services.Languages;
 
@@ -18,8 +21,9 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 public class MenuActivity extends AppCompatActivity {
-
-
+    private boolean stop_music = false;
+    private ImageView sound;
+    private MediaPlayer mediaPlayer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,11 +37,22 @@ public class MenuActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
 
+        mediaPlayer = MediaPlayer.create(this, R.raw.menu);
+        mediaPlayer.start();
+
+        sound = findViewById(R.id.sound);
+        sound.setImageResource(R.drawable.sound);
+        sound.setOnClickListener(this::onClick);
+
+
+
         Spinner spinner = findViewById(R.id.lang_spinner);
 
         ArrayList<Languages> languages = new ArrayList<>();
-        languages.add(new Languages(R.drawable.ru, "Russian"));
-        languages.add(new Languages( R.drawable.en, "English"));
+        languages.add(new Languages(R.drawable.world, "world"));
+        languages.add(new Languages(R.drawable.ru, "ru"));
+        languages.add(new Languages( R.drawable.en, "en"));
+
 
         MyCustomAdapter langAdapter = new MyCustomAdapter(this, R.layout.row_lang, languages);
         spinner.setAdapter(langAdapter);
@@ -47,14 +62,11 @@ public class MenuActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if (spinner.getSelectedItem() != null) {
                     Languages flag = (Languages) spinner.getSelectedItem();
-                    Locale locale = new Locale("en");
-                    Locale.setDefault(locale);
-
-                    Configuration config = getApplicationContext().getResources().getConfiguration();
-                    config.setLocale(locale);
-                    getApplicationContext().createConfigurationContext(config);
-
-                    getApplicationContext().getResources().updateConfiguration(config, getApplicationContext().getResources().getDisplayMetrics());
+                    if(!flag.getName().equals("world")) {
+                        setLang(flag.getName());
+                        reloadScreen(flag.getName());
+                        Toast.makeText(getApplicationContext(), "Установлен новый язык", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
 
@@ -75,10 +87,55 @@ public class MenuActivity extends AppCompatActivity {
         btn_history.setOnClickListener(this::onClick);
 
     }
+
+
+    private void reloadScreen(String Lang) {
+        Button play = findViewById(R.id.button_play);
+        Button rules = findViewById(R.id.button_rules);
+        Button history = findViewById(R.id.history);
+        Button exit = findViewById(R.id.button_exit);
+        if (Lang.equals("en")) {
+            play.setText("PLAY");
+            rules.setText("RULES");
+            history.setText("HISTORY");
+            exit.setText("EXIT");
+
+        }
+        else {
+            play.setText("ИГРАТЬ");
+            rules.setText("ПРАВИЛА");
+            history.setText("ИСТОРИЯ");
+            exit.setText("ВЫХОД");
+        }
+    }
+
+
+    private void setLang(String Lang) {
+        Locale locale = new Locale(Lang);
+        Locale.setDefault(locale);
+        Resources resources = getResources();
+        Configuration config = resources.getConfiguration();
+        config.setLocale(locale);
+        resources.updateConfiguration(config, resources.getDisplayMetrics());
+    }
+
     @SuppressLint("NonConstantResourceId")
     public void onClick(View v){
         Intent intent;
         switch (v.getId()) {
+            case R.id.sound:
+                if(stop_music) {
+                    mediaPlayer.start();
+                    sound.setImageResource(R.drawable.sound);
+                    stop_music= false;
+                }
+                else {
+                    mediaPlayer.pause();
+                    sound.setImageResource(R.drawable.mute1);
+                    stop_music = true;
+                }
+
+                break;
             case R.id.history:
                 intent = new Intent(this, GamesHistoryActivity.class);
                 startActivity(intent);
@@ -92,8 +149,13 @@ public class MenuActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.button_exit:
-                this.finish();
-                System.exit(0);
+                new AlertDialog.Builder(this)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setTitle(R.string.dialog_exit)
+                        .setMessage(R.string.exit)
+                        .setPositiveButton(R.string.yes, (dialog, which) -> System.exit(0))
+                        .setNegativeButton(R.string.no, null)
+                        .show();
                 break;
         }
 

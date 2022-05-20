@@ -3,9 +3,11 @@ package ru.sinforge.barabashka_game.GameComponents;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.*;
+import android.media.MediaPlayer;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import ru.sinforge.barabashka_game.Activities.ResultActivity;
+import ru.sinforge.barabashka_game.R;
 import ru.sinforge.barabashka_game.Services.MusicService;
 
 import static java.lang.Math.max;
@@ -25,12 +27,16 @@ public class GameThread extends Thread{
     private final SurfaceHolder surfaceHolder;
     private final Context context;
     private GameField gameField;
+    private MediaPlayer music_player1;
+    private MediaPlayer music_player2;
 
 
     public GameThread (Context context, SurfaceHolder surfaceHolder, GameField gameField) {
         this.gameField = gameField;
         this.context = context;
         this.surfaceHolder = surfaceHolder;
+        music_player1 = MediaPlayer.create(context, R.raw.correct_answer);
+        music_player2 =  MediaPlayer.create(context, R.raw.incorrect);
     }
 
     public void SetPlayersNames(String player1_name, String player2_name) {
@@ -57,9 +63,14 @@ public class GameThread extends Thread{
     //Метод для проверки корректного ответа
     public void CheckAnswer(int x, int y) {
         int ans = gameField.CheckAnswer(x,y);
+
         switch (ans) {
+            case 0:
+                music_player2.start();
+                break;
             case 1:
                 COUNT_PLAYER1++;
+                music_player1.start();
                 if(COUNT_PLAYER1 == point_to_end) {
                     Log.d("GAME_THREAD", "game over");
                     requestStop();
@@ -77,6 +88,7 @@ public class GameThread extends Thread{
                 break;
             case 2:
                 COUNT_PLAYER2++;
+                music_player1.start();
                 Log.d("GAME_THREAD", "game over");
                 if(COUNT_PLAYER2 == point_to_end) {
                     Log.d("GAME_THREAD", "game over");
@@ -92,7 +104,6 @@ public class GameThread extends Thread{
                 synchronized (sync) {
                     gameField.loadTextures(context);
                 }
-
                 break;
         }
     }
@@ -114,9 +125,10 @@ public class GameThread extends Thread{
                 try {
                     canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
 
-                    paint.setColor(Color.RED);
-                    paint.setARGB(255, 255, 0, 0);
-                    paint.setARGB(255, 0, 0, 255);
+                    canvas.drawARGB(255, 198, 216, 255);
+                    paint.setARGB(255,133, 4, 198);
+
+
                     canvas.drawText(""+COUNT_PLAYER1, 30 , 30, paint);
                     canvas.drawText(player1_name, 30, 80, paint);
                     canvas.drawText(""+COUNT_PLAYER2, canvas.getWidth()- 60 , 30, paint);

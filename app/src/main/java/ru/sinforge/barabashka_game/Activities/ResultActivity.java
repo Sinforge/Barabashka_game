@@ -1,6 +1,7 @@
 package ru.sinforge.barabashka_game.Activities;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -29,7 +30,9 @@ public class ResultActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
         TextView winner = findViewById(R.id.winner_name);
-
+        MediaPlayer player = MediaPlayer.create(this, R.raw.end_of_the_game);
+        player.setLooping(true);
+        player.start();
 
 
         String winner_name = getIntent().getStringExtra("Winner");
@@ -53,6 +56,7 @@ public class ResultActivity extends AppCompatActivity {
         btn_back_to_menu.setOnClickListener(v-> {
             Intent intent = new Intent(this, MenuActivity.class);
             startActivity(intent);
+            player.stop();
         });
 
 

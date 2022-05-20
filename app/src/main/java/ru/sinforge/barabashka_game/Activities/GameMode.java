@@ -70,8 +70,12 @@ public class GameMode extends AppCompatActivity {
             case R.id.starting:
                 Player1_NAME = player1.getText().toString();
                 Player2_NAME = player2.getText().toString();
-                Intent intent1 = new Intent(this, Activity_for_play.class);
-                intent1.putExtra("point_end", points_to_end);
+                if(Player1_NAME.equals("") || Player2_NAME.equals("")) {
+                    Toast.makeText(this, "У игроков обязательно должны быть имена", Toast.LENGTH_LONG).show();
+                    break;
+                }
+                Intent intent1 = new Intent(this, GameLoadingScreen.class);
+                intent1.putExtra("point_to_win", points_to_end + "");
                 intent1.putExtra("player1", Player1_NAME);
                 intent1.putExtra("player2", Player2_NAME);
                 startActivity(intent1);
