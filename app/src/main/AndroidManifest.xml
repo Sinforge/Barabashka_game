@@ -10,8 +10,12 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.Barabashka_game">
         <activity
+                android:name=".Activities.GameLoadingScreen"
+                android:exported="true"/>
+        <activity
                 android:name=".Activities.GameMode"
                 android:exported="true"
+                android:screenOrientation="locked"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 
         <service
@@ -24,10 +28,12 @@
         <activity
                 android:name=".Activities.GamesHistoryActivity"
                 android:exported="true"
+                android:screenOrientation="locked"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
                 android:name=".Activities.ResultActivity"
                 android:exported="true"
+                android:screenOrientation="locked"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
                 android:name=".Activities.GameRulesActivity"
@@ -35,11 +41,13 @@
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
                 android:name=".Activities.MenuActivity"
-                android:exported="true">
+                android:exported="true"
+                android:screenOrientation="locked">
         </activity>
         <activity
                 android:name=".Activities.SplashActivity"
                 android:exported="true"
+                android:screenOrientation="locked"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -50,6 +58,7 @@
         <activity
                 android:name=".Activities.Activity_for_play"
                 android:exported="true"
+                android:screenOrientation="locked"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
     </application>
 

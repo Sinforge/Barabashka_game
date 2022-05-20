@@ -27,13 +27,9 @@ public class Activity_for_play extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
         String player1 = getIntent().getStringExtra("player1");
         String player2 = getIntent().getStringExtra("player2");
-        int point_to_win = getIntent().getIntExtra("points_to_end", 20);
+        String point = getIntent().getStringExtra("point_to_win");
+        int point_to_win = Integer.valueOf(point);
         GameView gameView = findViewById(R.id.surfaceView1);
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         gameView.GameParams(player1, player2, point_to_win);
 
 

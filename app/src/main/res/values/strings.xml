@@ -113,8 +113,10 @@
     <!-- Sync Preferences -->
     <string name="sync_title" translatable="false">Sync email periodically</string>
     <string name="attachment_title" translatable="false">Download incoming attachments</string>
-    <string name="attachment_summary_on" translatable="false">Automatically download attachments for incoming emails</string>
-    <string name="attachment_summary_off" translatable="false">Only download attachments when manually requested</string>
+    <string name="attachment_summary_on" translatable="false">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off" translatable="false">Only download attachments when manually requested
+    </string>
     <string name="game_name" translatable="false">Barabashka Game</string>
     <string name="play">Играть</string>
     <string name="history">История</string>
@@ -134,4 +136,8 @@
     <string name="game_rules">Правила игры</string>
     <string name="resume_game">Продолжить игру</string>
     <string name="exit_to_menu">Выход в меню</string>
+    <string name="loading">Загрузка</string>
+    <string name="dialog_exit">Вы уверены, что хотите выйти?</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
 </resources>
