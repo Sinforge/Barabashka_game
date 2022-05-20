@@ -79,6 +79,7 @@ public class GameThread extends Thread{
                     intent.putExtra("Score1", COUNT_PLAYER1);
                     intent.putExtra("Score2", COUNT_PLAYER2);
                     context.stopService(new Intent(context, MusicService.class));
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     context.startActivity(intent);
                     break;
                 }
@@ -98,6 +99,8 @@ public class GameThread extends Thread{
                     intent.putExtra("Score1", COUNT_PLAYER1);
                     intent.putExtra("Score2", COUNT_PLAYER2);
                     context.stopService(new Intent(context, MusicService.class));
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
                     context.startActivity(intent);
                     break;
                 }

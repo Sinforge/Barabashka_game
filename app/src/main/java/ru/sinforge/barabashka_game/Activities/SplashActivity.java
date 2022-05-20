@@ -24,6 +24,8 @@ public class SplashActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
         new Handler().postDelayed(() -> {
             Intent menuIntent = new Intent(SplashActivity.this, MenuActivity.class);
+            menuIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
             startActivity(menuIntent);
             finish();
         }, SPLASH_TIME);

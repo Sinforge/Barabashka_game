@@ -1,8 +1,8 @@
 package ru.sinforge.barabashka_game.Services;
 
 public class Languages {
-    int img;
-    String name;
+    private int img;
+    private String name;
 
 
     public Languages(int img, String name) {

@@ -55,6 +55,7 @@ public class ResultActivity extends AppCompatActivity {
         Button btn_back_to_menu = findViewById(R.id.result_to_menu);
         btn_back_to_menu.setOnClickListener(v-> {
             Intent intent = new Intent(this, MenuActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
             player.stop();
         });

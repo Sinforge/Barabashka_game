@@ -78,6 +78,8 @@ public class GameMode extends AppCompatActivity {
                 intent1.putExtra("point_to_win", points_to_end + "");
                 intent1.putExtra("player1", Player1_NAME);
                 intent1.putExtra("player2", Player2_NAME);
+                intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
                 startActivity(intent1);
                 break;
         }

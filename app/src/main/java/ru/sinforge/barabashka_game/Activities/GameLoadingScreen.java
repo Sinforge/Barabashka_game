@@ -37,6 +37,8 @@ public class GameLoadingScreen extends AppCompatActivity {
             gameIntent.putExtra("point_to_win", getIntent().getStringExtra("point_to_win") );
             gameIntent.putExtra("player1", getIntent().getStringExtra("player1"));
             gameIntent.putExtra("player2", getIntent().getStringExtra("player2"));
+            gameIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
             startActivity(gameIntent);
             finish();
         }, SPLASH_TIME);

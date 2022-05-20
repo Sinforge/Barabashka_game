@@ -138,22 +138,25 @@ public class MenuActivity extends AppCompatActivity {
                 break;
             case R.id.history:
                 intent = new Intent(this, GamesHistoryActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 break;
             case R.id.button_play:
                 intent = new Intent(this, GameMode.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 break;
             case R.id.button_rules:
                 intent = new Intent(this, GameRulesActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 break;
             case R.id.button_exit:
                 new AlertDialog.Builder(this)
                         .setIcon(android.R.drawable.ic_dialog_alert)
-                        .setTitle(R.string.dialog_exit)
-                        .setMessage(R.string.exit)
-                        .setPositiveButton(R.string.yes, (dialog, which) -> System.exit(0))
+                        .setTitle(R.string.exit)
+                        .setMessage(R.string.dialog_exit)
+                        .setPositiveButton(R.string.yes, (dialog, which) -> this.finishAndRemoveTask())
                         .setNegativeButton(R.string.no, null)
                         .show();
                 break;
