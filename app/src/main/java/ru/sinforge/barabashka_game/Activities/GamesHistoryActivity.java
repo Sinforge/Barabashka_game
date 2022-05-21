@@ -17,7 +17,7 @@ import ru.sinforge.barabashka_game.R;
 
 import java.util.List;
 
-public class GamesHistoryActivity extends AppCompatActivity {
+public class GamesHistoryActivity extends AppCompatActivity{
     private ResultAdapter myAdapter;
     private Button clear;
 

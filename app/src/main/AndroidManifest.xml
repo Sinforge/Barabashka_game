@@ -56,7 +56,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".Activities.Activity_for_play"
+                android:name=".Activities.GameActivity"
                 android:exported="true"
                 android:screenOrientation="locked"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>

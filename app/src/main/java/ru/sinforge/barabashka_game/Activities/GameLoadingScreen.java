@@ -29,7 +29,7 @@ public class GameLoadingScreen extends AppCompatActivity {
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.ghost_moving);
         ghost.startAnimation(animation);
         new Handler().postDelayed(() -> {
-            Intent gameIntent = new Intent(GameLoadingScreen.this, Activity_for_play.class);
+            Intent gameIntent = new Intent(GameLoadingScreen.this, GameActivity.class);
 
 
 

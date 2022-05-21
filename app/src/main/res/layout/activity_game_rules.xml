@@ -39,9 +39,12 @@
     <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
             android:layout_width="349dp"
             android:layout_height="199dp"
+            android:id="@+id/youtube"
+            app:autoPlay="true"
+            app:videoId="y3bW3H95NMw"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:videoId="5qap5aO4i9A" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.965"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

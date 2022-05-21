@@ -12,7 +12,7 @@ import ru.sinforge.barabashka_game.GameComponents.PauseFragment;
 import ru.sinforge.barabashka_game.Services.MusicService;
 import ru.sinforge.barabashka_game.R;
 
-public class Activity_for_play extends AppCompatActivity {
+public class GameActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,5 +44,19 @@ public class Activity_for_play extends AppCompatActivity {
             fragmentTransaction.addToBackStack("MenuIsOpen");
             fragmentTransaction.commit();
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Intent intent = new Intent(this, MusicService.class);
+        stopService(intent);
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        Intent intent = new Intent(this, MusicService.class);
+        startService(intent);
     }
 }
