@@ -1,6 +1,10 @@
 package ru.sinforge.barabashka_game.Activities;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -15,7 +19,7 @@ import java.util.List;
 
 public class GamesHistoryActivity extends AppCompatActivity {
     private ResultAdapter myAdapter;
-
+    private Button clear;
 
 
     @Override
@@ -30,8 +34,14 @@ public class GamesHistoryActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
         initRecyclerView();
+        Button button = findViewById(R.id.back1);
+        button.setOnClickListener(v-> {
+            finish();
+        });
+
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void initRecyclerView() {
         RecyclerView recyclerView = findViewById(R.id.list);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
@@ -44,13 +54,19 @@ public class GamesHistoryActivity extends AppCompatActivity {
         recyclerView.addItemDecoration(dividerItemDecoration1);
         myAdapter = new ResultAdapter(generateData());
         recyclerView.setAdapter(myAdapter);
+        clear = findViewById(R.id.clear_history);
+        clear.setOnClickListener(v->{
+            AppDatabase db = AppDatabase.getDbInstance(this.getApplicationContext());
+            db.resultDAO().deleteAllResult(db.resultDAO().getAllResults());
+            myAdapter.notifyDataSetChanged();
+            Toast.makeText(this, R.string.clear_h, Toast.LENGTH_SHORT).show();
+        });
     }
 
 
 
-    public List generateData() {
+    public List<Result> generateData() {
         AppDatabase db = AppDatabase.getDbInstance(this.getApplicationContext());
-        List<Result> results = db.resultDAO().getAllResults();
-        return results;
+        return db.resultDAO().getAllResults();
     }
 }

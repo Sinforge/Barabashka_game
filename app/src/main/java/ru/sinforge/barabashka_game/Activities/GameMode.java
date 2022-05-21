@@ -10,8 +10,6 @@ import android.os.Bundle;
 import ru.sinforge.barabashka_game.R;
 
 public class GameMode extends AppCompatActivity {
-    private String Player1_NAME = "Player1";
-    private String Player2_NAME = "Player2";
     private int points_to_end = 15;
     public EditText player1;
     public EditText player2;
@@ -34,6 +32,11 @@ public class GameMode extends AppCompatActivity {
         player2 = findViewById(R.id.player2_field);
         Button start_game = findViewById(R.id.starting);
 
+        Button button = findViewById(R.id.back1);
+        button.setOnClickListener(v-> {
+            finish();
+        });
+
 
         b_10.setOnClickListener(this::onClick);
         b_15.setOnClickListener(this::onClick);
@@ -52,32 +55,32 @@ public class GameMode extends AppCompatActivity {
         switch (v.getId()) {
             case R.id.number_10:
                 this.points_to_end = 10;
-                Toast.makeText(this, "10 установлено конечным счетом", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.set_ten, Toast.LENGTH_SHORT).show();
                 break;
             case R.id.number_15:
                 this.points_to_end = 15;
-                Toast.makeText(this, "15 установлено конечным счетом", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.set_15, Toast.LENGTH_SHORT).show();
 
                 break;
             case R.id.number_20:
                 this.points_to_end = 20;
-                Toast.makeText(this, "20 установлено конечным счетом", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.set_20, Toast.LENGTH_SHORT).show();
                 break;
             case R.id.number_25:
                 this.points_to_end = 25;
-                Toast.makeText(this, "25 установлено конечным счетом", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.set_25, Toast.LENGTH_SHORT).show();
                 break;
             case R.id.starting:
-                Player1_NAME = player1.getText().toString();
-                Player2_NAME = player2.getText().toString();
-                if(Player1_NAME.equals("") || Player2_NAME.equals("")) {
-                    Toast.makeText(this, "У игроков обязательно должны быть имена", Toast.LENGTH_LONG).show();
+                String player1_NAME = player1.getText().toString();
+                String player2_NAME = player2.getText().toString();
+                if(player1_NAME.equals("") || player2_NAME.equals("")) {
+                    Toast.makeText(this, R.string.players_need_names, Toast.LENGTH_LONG).show();
                     break;
                 }
                 Intent intent1 = new Intent(this, GameLoadingScreen.class);
                 intent1.putExtra("point_to_win", points_to_end + "");
-                intent1.putExtra("player1", Player1_NAME);
-                intent1.putExtra("player2", Player2_NAME);
+                intent1.putExtra("player1", player1_NAME);
+                intent1.putExtra("player2", player2_NAME);
                 intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                 startActivity(intent1);

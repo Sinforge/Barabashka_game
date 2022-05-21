@@ -1,6 +1,7 @@
 package ru.sinforge.barabashka_game.Activities;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -24,6 +25,7 @@ public class MenuActivity extends AppCompatActivity {
     private boolean stop_music = false;
     private ImageView sound;
     private MediaPlayer mediaPlayer;
+    private final Activity context = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +40,7 @@ public class MenuActivity extends AppCompatActivity {
 
 
         mediaPlayer = MediaPlayer.create(this, R.raw.menu);
+        mediaPlayer.setLooping(true);
         mediaPlayer.start();
 
         sound = findViewById(R.id.sound);
@@ -65,7 +68,14 @@ public class MenuActivity extends AppCompatActivity {
                     if(!flag.getName().equals("world")) {
                         setLang(flag.getName());
                         reloadScreen(flag.getName());
-                        Toast.makeText(getApplicationContext(), "Установлен новый язык", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), (R.string.set_new_lang), Toast.LENGTH_SHORT).show();
+                        context.getWindow().getDecorView().setSystemUiVisibility(
+                                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                                        | View.SYSTEM_UI_FLAG_FULLSCREEN
+                                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
                     }
                 }
             }
@@ -142,6 +152,7 @@ public class MenuActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.button_play:
+                mediaPlayer.stop();
                 intent = new Intent(this, GameMode.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
@@ -156,7 +167,10 @@ public class MenuActivity extends AppCompatActivity {
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .setTitle(R.string.exit)
                         .setMessage(R.string.dialog_exit)
-                        .setPositiveButton(R.string.yes, (dialog, which) -> this.finishAndRemoveTask())
+                        .setPositiveButton(R.string.yes, (dialog, which) -> {
+                            this.finishAndRemoveTask();
+                            mediaPlayer.stop();
+                        })
                         .setNegativeButton(R.string.no, null)
                         .show();
                 break;

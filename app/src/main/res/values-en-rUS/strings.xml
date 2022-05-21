@@ -7,8 +7,8 @@
     <string name="Game_rules">You have certain figures on the screen with different characteristics (For example, blue
         triangle, orange square, etc.), we will call them objects. When the game starts, you will have on the screen
         objects with certain characteristics appear. Your task, depending on the object that appears, is to click on one
-        of your own according to one of the conditions:\\n* If you have an object that fully matches the one that
-        appeared, you must select the same object \\n* If you do not have exactly the same object, you must select the
+        of your own according to one of the conditions: \n* If you have an object that fully matches the one that
+        appeared, you must select the same object \n* If you do not have exactly the same object, you must select the
         object which will differ in all respects from the appeared
     </string>
     <string name="game_over">Game Over</string>
@@ -26,4 +26,19 @@
     <string name="resume_game">Resume game</string>
     <string name="exit_to_menu">Exit to menu</string>
     <string name="close" translatable="false">Close</string>
+    <string name="loading">Loading</string>
+    <string name="dialog_exit">Are you sure you want to exit?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="back">Back to menu</string>
+    <string name="clear_h">History cleared</string>
+    <string name="set_new_lang">"New language installed "</string>
+    <string name="set_ten">"10 set by final score "</string>
+    <string name="set_15">"15 set by final score "</string>
+    <string name="set_20">"20 set by final score "</string>
+    <string name="set_25">"25 set by final score "</string>
+    <string name="players_need_names">"Players must have names "</string>
+    <string name="cl_h">"Clear the history "</string>
+    <string name="welcome">Welcome</string>
+    <string name="share_r">\" won the game Barabashka Game. THIS IS A VERY COOL GAME, try it too\"</string>
 </resources>

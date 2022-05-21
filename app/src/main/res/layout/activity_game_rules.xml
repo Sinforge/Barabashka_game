@@ -11,7 +11,7 @@
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
               android:text="@string/game_rules"
               android:fontFamily="@font/main_text_regula"
-              android:textSize="30dp"
+              android:textSize="30sp"
               android:gravity="center"
 
               app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
@@ -26,14 +26,22 @@
               app:layout_constraintEnd_toEndOf="parent"
               app:layout_constraintBottom_toBottomOf="parent"
               app:layout_constraintTop_toTopOf="parent"
-              app:layout_constraintVertical_bias="0.615" android:id="@+id/textView8">
+              app:layout_constraintVertical_bias="0.876" android:id="@+id/textView8">
     </TextView>
+    <Button
+            android:text="@string/back"
+            android:layout_width="265dp"
+            style="@style/button_style"
+            android:layout_height="48dp" android:id="@+id/back1"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.099"/>
     <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
             android:layout_width="349dp"
             android:layout_height="199dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginBottom="32dp"
-            app:videoId="5qap5aO4i9A"/>
+            app:videoId="5qap5aO4i9A" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.965"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

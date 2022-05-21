@@ -26,9 +26,9 @@ public class GameThread extends Thread{
     private boolean running = true;
     private final SurfaceHolder surfaceHolder;
     private final Context context;
-    private GameField gameField;
-    private MediaPlayer music_player1;
-    private MediaPlayer music_player2;
+    private final GameField gameField;
+    private final MediaPlayer music_player1;
+    private final MediaPlayer music_player2;
 
 
     public GameThread (Context context, SurfaceHolder surfaceHolder, GameField gameField) {

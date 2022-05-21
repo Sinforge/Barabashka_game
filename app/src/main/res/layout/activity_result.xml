@@ -12,7 +12,7 @@
             android:layout_width="355dp"
             android:gravity="center"
             android:layout_height="135dp" android:id="@+id/game_over"
-            android:textSize="50dp" app:layout_constraintStart_toStartOf="parent"
+            android:textSize="50sp" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.047"
             android:fontFamily="@font/main_text_regula" app:layout_constraintHorizontal_bias="0.553"/>
@@ -42,7 +42,7 @@
             android:text="@string/winner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/text_winner"
-            android:textSize="30dp" app:layout_constraintStart_toStartOf="parent"
+            android:textSize="30sp" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.515"
             app:layout_constraintVertical_bias="0.258" android:fontFamily="@font/main_text_regula"/>
@@ -51,7 +51,7 @@
             android:gravity="center"
             android:layout_width="360dp"
             android:layout_height="47dp" android:id="@+id/winner_name"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:fontFamily="@font/main_text_regula"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -19,6 +19,5 @@ public interface ResultDAO {
     void insertResult(Result...results);
 
     @Delete
-    void deleteResult(Result result);
-
+    void deleteAllResult(List<Result> results);
 }

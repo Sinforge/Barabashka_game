@@ -17,7 +17,7 @@ public class GameField {
     private Shape MainShape = new Shape();
     private ArrayList<Shape> Shapes_PLAYER1;
     private ArrayList<Shape> Shapes_PLAYER2;
-    private int[] Correct_answers = {1, 4, 1, 2, 3, 1, 3, 3, 1, 4};
+    private final int[] Correct_answers = {1, 4, 1, 2, 3, 1, 3, 3, 1, 4, 2, 2, 3, 1, 4, 1, 2, 1, 3, 3};
     private int level_number;
     private Context context;
 
@@ -25,7 +25,7 @@ public class GameField {
         this.context = context;
     }
     public String SelectRandomLevel() {
-        this.level_number = (int)(Math.random()*10+ 1);
+        this.level_number = (int)(Math.random()*20+ 1);
         return ("level" +level_number);
     }
 

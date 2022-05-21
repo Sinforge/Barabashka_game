@@ -67,7 +67,7 @@ public class ResultActivity extends AppCompatActivity {
         ShareResult.setOnClickListener(v-> {
             Intent sendIntent = new Intent();
             sendIntent.setAction(Intent.ACTION_SEND);
-            sendIntent.putExtra(Intent.EXTRA_TEXT, winner_name + " одержал победу в игре Barabashka Game. ЭТО ОЧЕНЬ КРУТАЯ ИГРА, попробуй и ты");
+            sendIntent.putExtra(Intent.EXTRA_TEXT, winner_name + getString(R.string.share_r));
             sendIntent.setType("text/plain");
             Intent shareIntent = Intent.createChooser(sendIntent, null);
             startActivity(shareIntent);
