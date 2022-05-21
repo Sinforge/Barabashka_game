@@ -59,4 +59,11 @@ public class GameActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MusicService.class);
         startService(intent);
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Intent intent = new Intent(this, MusicService.class);
+        stopService(intent);
+    }
 }
