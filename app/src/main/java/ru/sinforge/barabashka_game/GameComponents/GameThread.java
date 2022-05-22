@@ -135,7 +135,7 @@ public class GameThread extends Thread{
                     canvas.drawText(""+COUNT_PLAYER1, 30 , 30, paint);
                     canvas.drawText(player1_name, 30, 80, paint);
                     canvas.drawText(""+COUNT_PLAYER2, canvas.getWidth()- 60 , 30, paint);
-                    canvas.drawText(player2_name,canvas.getWidth()-80, 80, paint );
+                    canvas.drawText(player2_name,canvas.getWidth()-120, 80, paint );
                     paint.setStyle(Paint.Style.FILL);
                     synchronized (sync) {
                         gameField.DrawImg(canvas,paint);
