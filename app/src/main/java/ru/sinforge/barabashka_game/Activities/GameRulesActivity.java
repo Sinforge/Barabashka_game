@@ -9,12 +9,12 @@ import android.os.Bundle;
 import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
-import ru.sinforge.barabashka_game.Activities.YouTubeFragments.ViewPagerFragmentAdapter;
+import ru.sinforge.barabashka_game.Adapters.ViewPagerFragmentAdapter;
 import ru.sinforge.barabashka_game.R;
 
 
 public class GameRulesActivity extends AppCompatActivity {
-    private final String[] titles = new String[] {"English", "Русский"};
+    private final int[] titles = new int[] { R.string.ru_lang, R.string.en_lang};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +36,7 @@ public class GameRulesActivity extends AppCompatActivity {
         ViewPagerFragmentAdapter viewPagerFragmentAdapter = new ViewPagerFragmentAdapter(this);
         viewPager2.setAdapter(viewPagerFragmentAdapter);
 
-        new TabLayoutMediator(tabLayout, viewPager2, (((tab, position) -> tab.setText(titles[position])))).attach();
+        new TabLayoutMediator(tabLayout, viewPager2, (((tab, position) -> tab.setText(getString(titles[position]))))).attach();
 
 
 

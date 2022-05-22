@@ -41,4 +41,12 @@
     <string name="cl_h">"Clear the history "</string>
     <string name="welcome">Welcome</string>
     <string name="share_r">\" won the game Barabashka Game. THIS IS A VERY COOL GAME, try it too\"</string>
+    <string name="less_symbols">"Player name must be less than 10 characters "</string>
+    <string name="ru_lang">Russian</string>
+    <string name="en_lang">English</string>
+    <string name="game_tutor">"Game Guide "</string>
+    <string name="Win_name">Winner</string>
+    <string name="Score1">Score 1</string>
+    <string name="Score2">Score 2</string>
+    <string name="date">Date</string>
 </resources>

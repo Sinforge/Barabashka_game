@@ -1,14 +1,16 @@
-package ru.sinforge.barabashka_game.Activities.YouTubeFragments;
+package ru.sinforge.barabashka_game.Adapters;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import org.jetbrains.annotations.NotNull;
+import ru.sinforge.barabashka_game.Activities.YouTubeFragments.Player1;
+import ru.sinforge.barabashka_game.Activities.YouTubeFragments.Player2;
 
 public class ViewPagerFragmentAdapter extends FragmentStateAdapter {
 
-    private String[] titles = new String[] {"English", "Russian"};
+    private String[] titles = new String[] {"Russian", "English"};
     public ViewPagerFragmentAdapter(@NonNull @NotNull FragmentActivity fragmentActivity) {
         super(fragmentActivity);
     }

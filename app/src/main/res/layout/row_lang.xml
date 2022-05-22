@@ -5,6 +5,7 @@
                                                    android:layout_height="wrap_content" android:background="@color/trans">
 
     <ImageView
+            android:layout_gravity="center"
             android:background="@color/trans"
             android:layout_width="30dp"
             android:layout_height="30dp" tools:srcCompat="@tools:sample/avatars" android:id="@+id/flag"

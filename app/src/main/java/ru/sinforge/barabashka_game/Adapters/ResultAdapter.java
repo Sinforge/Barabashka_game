@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import ru.sinforge.barabashka_game.Database.AppDatabase;
 import ru.sinforge.barabashka_game.Database.Result;
 import ru.sinforge.barabashka_game.R;
 
@@ -14,9 +15,11 @@ import java.util.List;
 public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ViewRow> {
 
     private List<Result> arrayList;
+    private AppDatabase db;
 
-    public ResultAdapter(List<Result> arrayList) {
-        this.arrayList = arrayList;
+    public ResultAdapter(AppDatabase db) {
+        this.db = db;
+        arrayList = db.resultDAO().getAllResults();
     }
 
     // lombok
@@ -37,6 +40,10 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ViewRow> {
         holder.Date.setText(arrayList.get(position).date);
     }
 
+    public void ReloadHist() {
+        arrayList = db.resultDAO().getAllResults();
+    }
+
     @Override
     public int getItemCount() {
         return arrayList.size();
@@ -52,7 +59,6 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ViewRow> {
 
         public ViewRow(@NonNull View itemView) {
             super(itemView);
-            //id = itemView.findViewById(R.id.identif);
             Winner = itemView.findViewById(R.id.Winner);
             Score1 = itemView.findViewById(R.id.Score1);
             Score2 = itemView.findViewById(R.id.Score2);

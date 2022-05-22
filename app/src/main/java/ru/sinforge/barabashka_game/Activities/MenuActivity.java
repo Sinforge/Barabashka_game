@@ -30,13 +30,7 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-        this.getWindow().getDecorView().setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_FULLSCREEN
-                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+        makeFullScreen();
 
 
         mediaPlayer = MediaPlayer.create(this, R.raw.menu);
@@ -61,6 +55,7 @@ public class MenuActivity extends AppCompatActivity {
         spinner.setAdapter(langAdapter);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            {makeFullScreen();}
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if (spinner.getSelectedItem() != null) {
@@ -69,20 +64,14 @@ public class MenuActivity extends AppCompatActivity {
                         setLang(flag.getName());
                         reloadScreen(flag.getName());
                         Toast.makeText(getApplicationContext(), (R.string.set_new_lang), Toast.LENGTH_SHORT).show();
-                        context.getWindow().getDecorView().setSystemUiVisibility(
-                                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                                        | View.SYSTEM_UI_FLAG_FULLSCREEN
-                                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+                        makeFullScreen();
                     }
                 }
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
+                makeFullScreen();
             }
         });
 
@@ -129,6 +118,16 @@ public class MenuActivity extends AppCompatActivity {
         resources.updateConfiguration(config, resources.getDisplayMetrics());
     }
 
+    private void makeFullScreen() {
+        context.getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+    }
+
     @SuppressLint("NonConstantResourceId")
     public void onClick(View v){
         Intent intent;
@@ -171,7 +170,9 @@ public class MenuActivity extends AppCompatActivity {
                             this.finishAndRemoveTask();
                             mediaPlayer.stop();
                         })
-                        .setNegativeButton(R.string.no, null)
+                        .setNegativeButton(R.string.no, (dialog, which) -> {
+                            makeFullScreen();
+                        }  )
                         .show();
                 break;
         }

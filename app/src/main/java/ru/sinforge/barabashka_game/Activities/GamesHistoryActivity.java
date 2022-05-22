@@ -52,21 +52,21 @@ public class GamesHistoryActivity extends AppCompatActivity{
 
         DividerItemDecoration dividerItemDecoration1 = new DividerItemDecoration(this, DividerItemDecoration.HORIZONTAL);
         recyclerView.addItemDecoration(dividerItemDecoration1);
-        myAdapter = new ResultAdapter(generateData());
+
+
+        AppDatabase db = AppDatabase.getDbInstance(this.getApplicationContext());
+
+        myAdapter = new ResultAdapter(db);
         recyclerView.setAdapter(myAdapter);
         clear = findViewById(R.id.clear_history);
         clear.setOnClickListener(v->{
-            AppDatabase db = AppDatabase.getDbInstance(this.getApplicationContext());
             db.resultDAO().deleteAllResult(db.resultDAO().getAllResults());
+            myAdapter.ReloadHist();
             myAdapter.notifyDataSetChanged();
+
             Toast.makeText(this, R.string.clear_h, Toast.LENGTH_SHORT).show();
         });
+
     }
 
-
-
-    public List<Result> generateData() {
-        AppDatabase db = AppDatabase.getDbInstance(this.getApplicationContext());
-        return db.resultDAO().getAllResults();
-    }
 }

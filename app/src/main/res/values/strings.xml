@@ -151,4 +151,12 @@
     <string name="cl_h">Очистить историю</string>
     <string name="welcome">Добро пожаловать</string>
     <string name="share_r">\" одержал победу в игре Barabashka Game. ЭТО ОЧЕНЬ КРУТАЯ ИГРА, попробуй и ты\"</string>
+    <string name="less_symbols">Имя игрока должно содержать меньше 10 символов</string>
+    <string name="ru_lang">Русский</string>
+    <string name="en_lang">Английский</string>
+    <string name="game_tutor">Руководство по игре</string>
+    <string name="Win_name">Призёр</string>
+    <string name="Score1">Счёт 1</string>
+    <string name="Score2">Счет 2</string>
+    <string name="date">Дата</string>
 </resources>

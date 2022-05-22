@@ -73,8 +73,12 @@ public class GameMode extends AppCompatActivity {
             case R.id.starting:
                 String player1_NAME = player1.getText().toString();
                 String player2_NAME = player2.getText().toString();
-                if(player1_NAME.equals("") || player2_NAME.equals("")) {
+                if(player1_NAME.equals("") || player2_NAME.equals("") ) {
                     Toast.makeText(this, R.string.players_need_names, Toast.LENGTH_LONG).show();
+                    break;
+                }
+                if (player1_NAME.length() > 10 || player2_NAME.length() > 10) {
+                    Toast.makeText(this, R.string.less_symbols, Toast.LENGTH_LONG).show();
                     break;
                 }
                 Intent intent1 = new Intent(this, GameLoadingScreen.class);
